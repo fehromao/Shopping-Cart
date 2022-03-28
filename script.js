@@ -57,7 +57,7 @@ function addToCartEvents() {
 function addEventLi() {
   const allLi = document.querySelectorAll('.cart__item');
   allLi.forEach((element) => {
-    element.addEventListener('click', cartItemClickListener)
+    element.addEventListener('click', cartItemClickListener);
   });
 }
 
