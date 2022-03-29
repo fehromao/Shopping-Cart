@@ -103,7 +103,7 @@ window.onload = async () => {
   addMessageLoading();
   const productsList = await fetchProducts('computador');
   removeMessageLoading();
-  productsList.forEach(({ id, title, thumbnail }) => {
+  productsList.results.forEach(({ id, title, thumbnail }) => {
     const productCard = createProductItemElement({ sku: id, name: title, image: thumbnail });
     list.appendChild(productCard);
   });
