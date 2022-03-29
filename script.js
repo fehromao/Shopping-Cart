@@ -86,9 +86,23 @@ function addEventLi() {
   });
 }
 
+function addMessageLoading() {
+  const getElement = document.querySelector('.items');
+  const createParagraph = document.createElement('p');
+  createParagraph.className = 'loading';
+  createParagraph.innerText = 'Carregando...';
+  getElement.appendChild(createParagraph);
+}
+
+function removeMessageLoading() {
+  document.querySelector('.loading').remove();
+}
+
 window.onload = async () => {
   const list = document.querySelector('.items');
+  addMessageLoading();
   const productsList = await fetchProducts('computador');
+  removeMessageLoading();
   productsList.forEach(({ id, title, thumbnail }) => {
     const productCard = createProductItemElement({ sku: id, name: title, image: thumbnail });
     list.appendChild(productCard);
