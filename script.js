@@ -100,6 +100,12 @@ function removeMessageLoading() {
   document.querySelector('.loading').remove();
 }
 
+function loadLocalStorage() {
+  const cartItems = getSavedCartItems();
+  const list = document.querySelector('.cart__items');
+  list.innerHTML = cartItems;
+}
+
 window.onload = async () => {
   const list = document.querySelector('.items');
   addMessageLoading();
@@ -111,8 +117,7 @@ window.onload = async () => {
   });
 
   addToCartEvents();
-  getSavedCartItems();
+  loadLocalStorage();
   addEventLi();
   addClearCartEvent();
-  // clearCart();
 };
